@@ -1,7 +1,7 @@
 name: On-Premise Request Form
 description: Request CIROH on-premise resources such as Pantarhei or NSF ACCESS allocations.
 title: "[On-Prem Resource Request]: "
-labels: ["on-prem", "resource-request"]
+labels: ["on-prem", "resource-request", "Infra Access"]
 body:
   - type: markdown
     attributes:
@@ -117,16 +117,18 @@ body:
     validations:
       required: true
 
-  - type: dropdown
+  - type: checkboxes
     id: allocation
     attributes:
       label: Pantarhei / NSF ACCESS Allocation
       description: Select the allocation service being requested.
       options:
-        - Pantarhei
-        - NSF ACCESS
-        - Both
-        - Neither / Not Applicable
+        - label: Pantarhei
+        - label: NSF JetStream CPU
+        - label: NSF JetStream GPU
+        - label: NSF Anvil CPU
+        - label: NSF Anvil GPU
+
     validations:
       required: true
 
@@ -134,7 +136,7 @@ body:
     attributes:
       value: |
         More information:
-        - CIROH Pantarhei Documentation: https://docs.ciroh.org/docs/services/on-prem/Pantarhei/
+        - CIROH Pantarhei Documentation: https://hub.ciroh.org/docs/services/on-prem/Pantarhei/
         - ACCESS Resource Allocations: https://allocations.access-ci.org/resources
 
   - type: markdown
